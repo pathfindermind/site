@@ -1,0 +1,29 @@
+{% extends 'blog/base.html' %}
+{% block blog_title %}{{ entry.title }}{% endblock %}
+{% block blog_content %}
+<br>
+<br>
+		<div class="preamble col-lg-12 col-md-12">
+						<h3>{{ entry.title }}</h3>
+						<p>{{ entry.tease }}</p>
+		</div>
+		<div class="news col-lg-12 col-md-12">
+			<div class="overlay">
+				<div class="news col-lg-4 col-md-4">
+											<img src="/media/{{entry.image }}" alt="">
+									</div>
+						<h5>{{ entry.published_at|date:"Y/M/d" }}</h5>
+								<p>
+                  {% autoescape off %}
+                  {{ entry.body }}
+                  {% endautoescape %}
+								</p>
+				<ul class="social custom-list list-inline">
+					<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+					<li><a href="#"><i class="fa fa-behance"></i></a></li>
+					<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+					<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+				</ul>
+			</div>
+		</div>
+  {% endblock %}

@@ -1,0 +1,165 @@
+{% load staticfiles %}
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>Ricardo - Corporate One Page Template </title>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="{% static 'page/css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'page/css/lightbox.css' %}">
+
+  <!-- Google Fonts -->
+  <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+
+  <!--[if IE 9]>
+    <script src="js/media.match.min.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+
+<!-- Start Header -->
+<header id="header">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12">
+        <div class="logo pull-left">
+          <a href="/">
+            <img src="{% static 'page/img/logo.png' %}" alt="" class="dark">
+            <img src="{% static 'page/img/logo2.png' %}" alt="" class="light">
+          </a>
+        </div>
+        <div class="navigation pull-right">
+          <nav class="navbar navbar-default">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="/">Главная</a></li>
+            </ul>
+          </nav>
+        </div>
+        <i class="fa fa-bars toggle"></i>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- End Header -->
+
+<br>
+
+  <section id="blog">
+  <div class="container">
+
+
+{% block blog_title %}spisok{% endblock %}
+
+{% block blog_content %}
+    {% for entry in entries %}
+        <div>
+            <a href="{{ entry.get_absolute_url }}">
+                <h2>{{ entry.title }}</h2>
+            </a>
+            <div>{{ entry.tease }}</div>
+            <div><i>{{ entry.published_at|date:"Y/M/d" }}</i></div>
+        </div>
+    {% endfor %}
+{% endblock %}
+</div>
+</section>
+<div class="skew_prepended graySection"></div>
+<footer id="footer">
+  <div class="skew_prepended graySection"></div>
+  <div class="footer-top">
+    <div class="container">
+      <div class="row">
+        <div class="widget widget-about col-lg-3 col-md-3">
+          <h5 class="title-widget">About Us</h5>
+          <div class="sub-title">
+            <h5>Designed by Anashko</h5>
+            <p>Tailored design for 14 dolars</p>
+          </div>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem possimus veniam dolor, ea molestias quis temporibus non minima assumenda ducimus quaerat cupiditate esse velit sed culpa at aliquam unde voluptates?</p>
+        </div>
+        <div class="widget col-lg-3 col-md-3">
+          <h5 class="title-widget">Recent Post</h5>
+          <ul class="list custom-list">
+            <li>
+              <h5><a href="#">Lorem ipsum dolor sit amet</a></h5>
+              <p>On Blog Title Amazing Title</p>
+            </li>
+            <li>
+              <h5><a href="#">Phasellus ornare</a></h5>
+              <p>On Blog Title Amazing Title</p>
+            </li>
+            <li>
+              <h5><a href="#">Nam congue vitae dapibus aliquet</a></h5>
+              <p>On Blog Title Amazing Title</p>
+            </li>
+          </ul>
+        </div>
+        <div class="widget col-lg-3 col-md-3">
+          <h5 class="title-widget">Archives</h5>
+          <ul class="list custom-list">
+            <li>
+              <h5><a href="#">Donec venenatis, turpis vel hendrerit</a></h5>
+              <p>On Blog Title Amazing Title</p>
+            </li>
+            <li>
+              <h5><a href="#">Tsit amet consectetur</a></h5>
+              <p>On Blog Title Amazing Title</p>
+            </li>
+          </ul>
+        </div>
+        <div class="widget col-lg-3 col-md-3">
+          <h5 class="title-widget">Instagram</h5>
+          <ul class="instagram custom-list">
+            <li><a href="#"><img src="img/twitter-1.jpg" alt=""></a></li>
+            <li><a href="#"><img src="img/twitter-2.jpg" alt=""></a></li>
+            <li><a href="#"><img src="img/twitter-4.jpg" alt=""></a></li>
+            <li><a href="#"><img src="img/twitter-3.jpg" alt=""></a></li>
+            <li><a href="#"><img src="img/twitter-5.jpg" alt=""></a></li>
+            <li><a href="#"><img src="img/twitter-6.jpg" alt=""></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyrights">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="pull-left">
+            <p>2015 Anashko Design. All rights Reserved.</p>
+          </div>
+          <div class="pull-right">
+            <ul class="social custom-list list-inline">
+              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+              <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+              <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+              <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Scripts -->
+<script src="http://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
+<script src="{% static 'page/js/jquery-2.1.4.min.js' %}"></script>
+<script src="{% static 'page/js/jquery.viewport.js' %}"></script>
+<script src="{% static 'page/js/scripts.js' %}"></script>
+<script src="{% static 'page/js/jquery-ui.min.js' %}"></script>
+<script src="{% static 'page/js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'page/js/gmap3.min.js'%}"></script>
+<script src="{% static 'page/js/isotope.pkgd.min.js' %}"></script>
+<script src="{% static 'page/js/jquery.nav.js' %}"></script>
+<script src="{% static 'page/js/lightbox.js' %}"></script>
+
+</body>
+</html>

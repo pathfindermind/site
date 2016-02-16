@@ -1,0 +1,15 @@
+{% extends 'blog/base.html' %}
+ 
+{% block blog_title %}spisok{% endblock %}
+
+{% block blog_content %}
+    {% for entry in entries %}
+        <div>
+            <a href="{{ entry.get_absolute_url }}">
+                <h2>{{ entry.title }}</h2>
+            </a>
+            <div><p>{{ entry.tease }}</p></div>
+            <div><i>{{ entry.published_at|date:"Y/M/d" }}</i></div>
+        </div>
+    {% endfor %}
+{% endblock %}

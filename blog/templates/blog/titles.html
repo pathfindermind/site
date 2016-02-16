@@ -1,0 +1,23 @@
+{% for entry in entries %}
+<div class="news col-lg-4 col-md-4">
+        <div class="overlay">
+          <img src="/media/{{entry.image }}" alt="">
+          <div class="overlay-shadow">
+            <div class="overlay-content">
+              <object data="img/book.svg" type="image/svg+xml"></object>
+              <h5><a href="{{ entry.get_absolute_url }}">Читать далее</a></h5>
+            </div>
+          </div>
+        </div>
+        <div class="skew_prepended skew_member whiteSection"></div>
+        <h4><a href="{{ entry.get_absolute_url }}">{{ entry.title }}</a></h4>
+        <h5>{{ entry.published_at|date:"Y/M/d" }}</h5>
+        <p>{{ entry.tease }}</p>
+        <ul class="social custom-list list-inline">
+          <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+          <li><a href="#"><i class="fa fa-behance"></i></a></li>
+          <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+          <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+        </ul>
+      </div>
+{% endfor %}
