@@ -1,4 +1,4 @@
-    <form method="POST" action="" class="default-form" id="contactform">
+    <form method="POST" action="{% url "contacts" %}" class="default-form" id="contactform">
       <div class="row">
         {% csrf_token %}
         {{ form.non_field_errors }}
